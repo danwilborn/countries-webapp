@@ -1,26 +1,84 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Country from './Country.js';
+import validate from './Validate.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleCodeChange = this.handleCodeChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+      newName: "",
+      newCode: "",
+      name: "",
+      code: "",
+      display: false
+    }
+  }
+
+  handleNameChange(event) {
+    this.setState({
+      newName: event.target.value
+    });
+  }
+
+  handleCodeChange(event) {
+    this.setState({
+      newCode: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    if (validate(this.state.newName, this.state.newCode)) {
+      this.setState({
+        name: this.state.newName,
+        code: this.state.newCode,
+        display: true
+      });
+    }
+    event.preventDefault();
+  }
+
+  render() {
+
+    let countryDisplay = null;
+
+   if (this.state.display) {
+      countryDisplay = <Country name={this.state.name} code={this.state.code}/>;
+    }
+
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p>
+            Country Stat Finder
+          </p>
+        </header>
+        <div className="Search-Container">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <input className="Search-Bar" type="text" placeholder="Search by Name" value={this.state.newName} onChange={this.handleNameChange} aria-label="Search"/>
+                  <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input className="Search-Bar" type="text" placeholder="Search by 3-Letter Code" value={this.state.newCode} onChange={this.handleCodeChange} aria-label="Search"/>
+                  <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {countryDisplay}
+      </div>
+    );
+
+  }
 }
 
-export default App;

@@ -1,0 +1,21 @@
+.Country-Table {
+    margin-top: 5vh;
+    border: 1px solid lightgrey;
+    width: 800px;
+    color: lightgrey;
+    font-size: 2vmin;
+    text-align: left;
+    border-spacing: 0px;
+}
+
+th {
+    padding-left: 5px;
+}
+
+.entry {
+    height: 4vmin;
+    min-width: 8vmin;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid lightgrey;
+}
