@@ -15,7 +15,9 @@ export default function SearchCountry(url) {
                     name: country['name'],
                     code: country['alpha3Code'],
                     capital: country['capital'],
-                    population: country['population']
+                    population: country['population'],
+                    area: country['area'],
+                    population_density: country['population']/country['area']
                 }
                 countries.push(newCountry);
             });
@@ -24,7 +26,9 @@ export default function SearchCountry(url) {
                 name: data['name'],
                 code: data['alpha3Code'],
                 capital: data['capital'],
-                population: data['population']
+                population: data['population'],
+                area: data['area'],
+                population_density: data['population']/data['area']
             }
             countries.push(newCountry);
         }

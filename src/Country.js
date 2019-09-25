@@ -1,6 +1,7 @@
 import React from "react";
 import './Countries.css';
 import SearchCountry from './SearchCountry.js';
+import WithCommas from './FormatNumbers.js'
 
 export default class Country extends React.Component {
 
@@ -33,7 +34,9 @@ export default class Country extends React.Component {
             row.push(<td key={"name"+count} className="entry">{country.name}</td>);
             row.push(<td key={"code"+count} className="entry">{country.code}</td>);
             row.push(<td key={"capital"+count} className="entry">{country.capital}</td>);            
-            row.push(<td key={"population"+count} className="entry">{country.population}</td>);
+            row.push(<td key={"population"+count} className="entry">{WithCommas(country.population)}</td>);
+            row.push(<td key={"area"+count} className="entry">{WithCommas(country.area)}</td>);
+            row.push(<td key={"population_density"+count} className="entry">{country.population_density}</td>);
             tablerows.push(<tr key={count}>{row}</tr>);
             count++;
         });
@@ -47,6 +50,8 @@ export default class Country extends React.Component {
                             <th>Code</th>
                             <th>Capital</th>
                             <th>Population</th>
+                            <th>Area (km<sup>2</sup>)</th>
+                            <th>Population Density (persons/km<sup>2</sup>)</th>
                         </tr>
                         {tablerows}
                     </tbody>
