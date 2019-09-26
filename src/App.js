@@ -62,14 +62,18 @@ export default class App extends React.Component {
             <tbody>
               <tr>
                 <td>
-                  <input className="Search-Bar" type="text" placeholder="Search by Name" value={this.state.newName} onChange={this.handleNameChange} aria-label="Search"/>
-                  <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
+                  <form onSubmit={this.handleSubmit} >
+                    <input className="Search-Bar" type="text" placeholder="Search by Name" value={this.state.newName} onChange={this.handleNameChange} aria-label="Search"/>
+                    <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
+                  </form>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <input className="Search-Bar" type="text" placeholder="Search by 3-Letter Code" value={this.state.newCode} onChange={this.handleCodeChange} aria-label="Search"/>
-                  <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
+                  <form onSubmit={this.handleSubmit} >
+                    <input className="Search-Bar" type="text" placeholder="Search by 3-Letter Code" value={this.state.newCode} onChange={this.handleCodeChange} aria-label="Search"/>
+                    <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
+                  </form>
                 </td>
               </tr>
             </tbody>

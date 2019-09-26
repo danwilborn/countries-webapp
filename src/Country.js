@@ -31,6 +31,7 @@ export default class Country extends React.Component {
         countries.forEach(country => {
             console.log(country);
             let row = [];
+            row.push(<td key={"flag"+count} className="entry"><img src={country.flag} alt={country.name+" flag"} className="flag"></img></td>);
             row.push(<td key={"name"+count} className="entry">{country.name}</td>);
             row.push(<td key={"code"+count} className="entry">{country.code}</td>);
             row.push(<td key={"capital"+count} className="entry">{country.capital}</td>);            
@@ -46,6 +47,7 @@ export default class Country extends React.Component {
                 <table className="Country-Table">
                     <tbody>
                         <tr>
+                            <th></th>
                             <th>Name</th>
                             <th>Code</th>
                             <th>Capital</th>
