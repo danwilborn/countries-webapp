@@ -1,7 +1,7 @@
 import React from "react";
 import './Countries.css';
 import SearchCountry from './SearchCountry.js';
-import WithCommas from './FormatNumbers.js'
+import WithCommas from './FormatNumbers.js';
 
 export default class Country extends React.Component {
 

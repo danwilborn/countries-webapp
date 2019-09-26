@@ -1,3 +1,4 @@
+import ValidateOp from './ValidateMath.js';
 
 export default function SearchCountry(url) {
 
@@ -17,7 +18,7 @@ export default function SearchCountry(url) {
                     capital: country['capital'],
                     population: country['population'],
                     area: country['area'],
-                    population_density: country['population']/country['area'],
+                    population_density: ValidateOp(country['population'], country['area'], "/"),
                     flag: country['flag']
                 }
                 countries.push(newCountry);

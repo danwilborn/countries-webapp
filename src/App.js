@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Country from './Country.js';
-import validate from './Validate.js';
+import Validate from './ValidateInput.js';
 
 export default class App extends React.Component {
 
@@ -32,7 +32,7 @@ export default class App extends React.Component {
   }
 
   handleSubmit(event) {
-    if (validate(this.state.newName, this.state.newCode)) {
+    if (Validate(this.state.newName, this.state.newCode)) {
       this.setState({
         name: this.state.newName,
         code: this.state.newCode,
@@ -64,7 +64,6 @@ export default class App extends React.Component {
                 <td>
                   <form onSubmit={this.handleSubmit} >
                     <input className="Search-Bar" type="text" placeholder="Search by Name" value={this.state.newName} onChange={this.handleNameChange} aria-label="Search"/>
-                    <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
                   </form>
                 </td>
               </tr>
@@ -72,8 +71,12 @@ export default class App extends React.Component {
                 <td>
                   <form onSubmit={this.handleSubmit} >
                     <input className="Search-Bar" type="text" placeholder="Search by 3-Letter Code" value={this.state.newCode} onChange={this.handleCodeChange} aria-label="Search"/>
-                    <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
                   </form>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button className="Search-Button" type="submit" onClick={this.handleSubmit}>Search</button>
                 </td>
               </tr>
             </tbody>
